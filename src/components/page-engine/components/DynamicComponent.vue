@@ -2,8 +2,13 @@
   <view>
     <uni-box v-if="type == 'box'" />
     <uni-tag v-else-if="type == 'tag'" />
-    <uni-row v-else-if="type == 'row'">
-      <uni-col v-for="(item, index) in content" :key="index" :col="item.col">
+    <uni-row v-else-if="type == 'row'" class="row">
+      <uni-col
+        class="col col-12"
+        v-for="(item, index) in content"
+        :key="index"
+        :col="item.col"
+      >
         <dynamic-component
           :type="item.type"
           :content="item.content"

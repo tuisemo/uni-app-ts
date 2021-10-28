@@ -1,21 +1,20 @@
 <template>
   <view class="row">
-   <slot></slot>
+    <slot></slot>
   </view>
 </template>
 <script type="text/ecmascript-6">
 export default {
-  components: {
-  },
+  components: {},
   data() {
-	return {
-	}
-  }
-}
+    return {};
+  },
+  options: { styleIsolation: "shared" },
+};
 </script>
 <style lang="scss">
-.row{
-	display: flex;
-	flex-flow: row wrap;
+.row {
+  display: flex;
+  flex-flow: row wrap;
 }
 </style>

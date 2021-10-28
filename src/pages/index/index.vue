@@ -4,15 +4,16 @@
     <view>
       <text class="title">{{ title }}</text>
     </view>
-    <uni-row>
-      <uni-col :col="12">
-        <uni-tag></uni-tag>
-      </uni-col>
-      <uni-col :col="12">
-        <uni-tag></uni-tag>
-      </uni-col>
-    </uni-row>
-    <page-engine :configs="configs"></page-engine>
+    <!-- <page-engine :configs="configs"></page-engine> -->
+    <view class="row">
+      <view class="col" v-for="(item, index) in list" :key="index">
+        <view class="app-item">9090</view>
+      </view>
+      <!-- 占位符优化布局 -->
+      <!-- <view class="col"></view>
+      <view class="col"></view>
+      <view class="col"></view> -->
+    </view>
   </view>
 </template>
 
@@ -54,6 +55,7 @@ export default Vue.extend({
           ],
         },
       ],
+      list: new Array(3).fill(1),
     };
   },
   onLoad() {},
@@ -61,7 +63,7 @@ export default Vue.extend({
 });
 </script>
 
-<style>
+<style lang="scss">
 .content {
   display: flex;
   flex-direction: column;
@@ -83,5 +85,28 @@ export default Vue.extend({
 .title {
   font-size: 36rpx;
   color: #8f8f94;
+}
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin: 0 15px;
+  background: darkcyan;
+  .col {
+    flex: 0 0 31%;
+    box-sizing: border-box;
+  }
+  &:before,
+  &:after {
+    content: "";
+    display: block;
+  }
+}
+.app-item {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  background: cornflowerblue;
 }
 </style>
